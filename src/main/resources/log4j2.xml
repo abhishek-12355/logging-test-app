@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{3} - %msg%n"/>
+        </Console>
+        <File name="Log1" fileName="log1.log" immediateFlush="false" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{3} - %msg%n"/>
+        </File>
+        <File name="Log2" fileName="log2.log" immediateFlush="false" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{3} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="MyFile"/>-->
+        </Root>
+        <Logger name="com.netshell.test.logging.log1" level="debug" additivity="false">
+            <AppenderRef ref="Log1"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.netshell.test.logging.log2" level="debug" additivity="false">
+            <AppenderRef ref="Log2"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
